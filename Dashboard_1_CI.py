@@ -6,7 +6,6 @@ import plotly.express as px
 @st.cache_data
 def load_data():
     tpci = pd.read_csv('TalkpushCI_data_fetch.csv')
-    tpci = tpci[tpci['CRMINSTANCE'].str.contains('dava', case=False, na=False)]
     return tpci
 
 tpci = load_data()
