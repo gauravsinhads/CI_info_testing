@@ -1,12 +1,11 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import dateparser
 from datetime import datetime, timedelta
 
 # Load Data
 tpci = pd.read_csv("TalkpushCI_data_fetch.csv")
-tpci['INVITATIONDT'] = tpci['INVITATIONDT'].apply(lambda x: dateparser.parse(str(x)))
+tpci['INVITATIONDT'] = pd.to_datetime(tpci['INVITATIONDT'])
 
 # Define Colors
 colors = ["#001E44", "#F5F5F5", "#E53855", "#B4BBBE", "#2F76B9", "#3B9790", "#F5BA2E", "#6A4C93", "#F77F00"]
