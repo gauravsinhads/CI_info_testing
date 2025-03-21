@@ -7,10 +7,10 @@ import plotly.express as px
 def load_data():
     tpci = pd.read_csv('TalkpushCI_data_fetch.csv')
     tpci = tpci[tpci['CRMINSTANCE'].str.contains('dava', case=False, na=False)]
-    tpci['INVITATIONDT'] = pd.to_datetime(tpci['INVITATIONDT'])
     return tpci
 
 tpci = load_data()
+tpci['INVITATIONDT'] = pd.to_datetime(tpci['INVITATIONDT'])
 
 # Function to get aggregated data
 def get_aggregated_data(tpci, freq, period):
