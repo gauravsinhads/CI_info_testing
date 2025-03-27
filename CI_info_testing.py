@@ -57,3 +57,18 @@ st.plotly_chart(fig5, use_container_width=True)
 top_completion_methods = filtered_data['COMPLETIONMETHOD'].value_counts().nlargest(5)
 fig6 = px.bar(top_completion_methods, x=top_completion_methods.index, y=top_completion_methods.values, title='Top 5 Completion Methods', labels={'y': 'Counts'}, color_discrete_sequence=[colors[6]])
 st.plotly_chart(fig6, use_container_width=True)
+
+# Graph 7: Repeat Application Counts
+repeat_applications = filtered_data[filtered_data['REPEATAPPLICATION'] == 't'].resample(date_freq, on='INVITATIONDT').count()
+fig7 = px.bar(repeat_applications, x=repeat_applications.index, y='REPEATAPPLICATION', title='Repeat Application Counts', labels={'REPEATAPPLICATION': "Counts-'REPEATAPPLICATION'"}, color_discrete_sequence=[colors[7]])
+st.plotly_chart(fig7, use_container_width=True)
+
+# Graph 8: Top 5 Campaign Type Occurrences
+top_campaign_types = filtered_data['CAMPAIGN_TYPE'].value_counts().nlargest(5)
+fig8 = px.bar(top_campaign_types, x=top_campaign_types.index, y=top_campaign_types.values, title='Top 5 Campaign Type Occurrences', labels={'y': 'Counts'}, color_discrete_sequence=[colors[8]])
+st.plotly_chart(fig8, use_container_width=True)
+
+# Graph 9: Lead Counts by Campaign Site
+top_campaign_sites = filtered_data['CAMPAIGN_SITE'].value_counts().nlargest(5)
+fig9 = px.bar(top_campaign_sites, x=top_campaign_sites.index, y=top_campaign_sites.values, title='Lead Counts by Campaign Site', labels={'y': 'Counts'}, color_discrete_sequence=[colors[0]])
+st.plotly_chart(fig9, use_container_width=True)
