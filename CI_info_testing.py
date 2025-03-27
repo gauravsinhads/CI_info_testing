@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 
 # Load data
-tpci = pd.read_excel("TalkpushCI_data_fetch.xlsx")
+tpci = pd.read_csv("TalkpushCI_data_fetch.csv")
 tpci['INVITATIONDT'] = pd.to_datetime(tpci['INVITATIONDT'])
 
 # Define colors for graphs
